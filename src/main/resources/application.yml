@@ -6,11 +6,11 @@ server:
       enabled: false  
 
 spring:
-  profiles:
-    active:
-      - test
+  # profiles:
+  #   active:
+  #     - test
   datasource:
-    url: "jdbc:mysql://localhost:3306/univBackendDB"
+    url: "jdbc:mysql://localhost:3306/portfolioDatabase"
     username: root
     password: class Kushal{PASS}
     driver-class-name: "com.mysql.cj.jdbc.Driver"
@@ -21,6 +21,20 @@ spring:
   servlet:
     multipart:
       max-file-size:
-        "10MB"
+        128MB
       max-request-size:
-        "10MB"
+        128MB
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: kushalshah821@gmail.com
+    password: wfjsvggpbijxfhap
+    properties:
+      mail:
+        smtp:
+          auth:
+            true
+          starttls:
+            enable:
+              true
