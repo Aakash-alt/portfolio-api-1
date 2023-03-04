@@ -1,6 +1,7 @@
 package com.kushal.backend.exceptions;
 
 import com.kushal.backend.response.EmailSentResponse;
+import com.kushal.backend.response.IncorrectResponse;
 import com.kushal.backend.response.NotFoundResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,4 +40,16 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 );
     }
 
+    @ExceptionHandler(IncorrectDataException.class)
+    public ResponseEntity<IncorrectResponse> incorrectDataExceptionHandler(IncorrectDataException e, WebRequest request) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(
+                        IncorrectResponse
+                                .builder()
+                                .status(HttpStatus.BAD_REQUEST)
+                                .message(e.getMessage())
+                                .build())
+                ;
+    }
 }

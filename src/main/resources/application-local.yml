@@ -1,14 +1,12 @@
-# Configurations for production build of the application
-
 spring:
   config:
     activate:
       on-profile:
-        - prod
+        - local
   datasource:
-    url: ${prodDBUrl}
-    username: ${prodDBUserName}
-    password: ${prodDBPassword}
+    url: "jdbc:mysql://localhost:3306/${localDBName}"
+    username: ${localDBUserName}
+    password: ${localDBPassword}
     driver-class-name: "com.mysql.cj.jdbc.Driver"
   jpa:
     show-sql: true
