@@ -22,21 +22,35 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project_sequence")
     private Long projectId;
     private String title;
-    private String description;
+    private String service;
     private String author;
     private String client;
     private String startDate;
     private String endDate;
     private String url;
 
-    public Project(String title, String description, String author, String client, String startDate, String endDate, String url) {
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "social_id", referencedColumnName = "id")
+    private Socials socials;
+
+    public Project(
+            String title,
+            String service,
+            String author,
+            String client,
+            String startDate,
+            String endDate,
+            String url,
+            Socials socials
+    ) {
         this.title = title;
-        this.description = description;
+        this.service = service;
         this.author = author;
         this.client = client;
         this.startDate = startDate;
         this.endDate = endDate;
         this.url = url;
+        this.socials = socials;
     }
 
     @OneToMany(

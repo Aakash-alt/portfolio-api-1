@@ -11,5 +11,5 @@ import java.util.Optional;
 public interface ProjectRepository extends JpaRepository<Project, Long> {
 
     Optional<List<Project>> findByTitle(String title);
-    Optional<List<Project>> findByUrl(String url);
+    Optional<Project> findByUrl(String url);
 }

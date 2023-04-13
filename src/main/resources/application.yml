@@ -8,7 +8,7 @@ server:
 spring:
   profiles:
     active:
-      - prod
+      - test
   servlet:
     multipart:
       max-file-size:
