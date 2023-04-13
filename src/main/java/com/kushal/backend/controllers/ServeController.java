@@ -21,7 +21,7 @@ public class ServeController {
     @Autowired
     private ImageService imageService;
 
-    @GetMapping(value = "/{name}", produces = MediaType.IMAGE_JPEG_VALUE)
+    @GetMapping(value = "/{name}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE, MediaType.IMAGE_GIF_VALUE})
     public void getImageUsingName(
             @PathVariable("name") String imageName,
             HttpServletResponse response
